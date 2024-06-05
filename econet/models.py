@@ -7,6 +7,7 @@ class Usuari(models.Model):
     nom = models.CharField(max_length=255, null=False)
     telefon = models.CharField(max_length=200, null=False)
     correu = models.EmailField(max_length=255, null=False)
+    is_client = models.BooleanField(default=True)
 
     def __str__(self):
         return self.username

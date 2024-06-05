@@ -11,5 +11,5 @@ router.register(r'producte', views.ProducteView, 'producte')
 router.register(r'element_compra', views.Element_CompraView, 'element_compra')
 
 urlpatterns = [
-    path("api/", include(router.urls))
+    path("api/", include(router.urls)),
 ]
