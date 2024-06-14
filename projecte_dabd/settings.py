@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-=n_js0*4fvj1x1jr_0en^tjif4k@yh^u%sm)(8v*bcf7&i18qv
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -43,9 +43,9 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -78,12 +78,18 @@ WSGI_APPLICATION = 'projecte_dabd.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+	'default': {
+   	# 'ENGINE': 'django.db.backends.sqlite3',
+   	# 'NAME': BASE_DIR / 'db.sqlite3',
+     	'ENGINE': 'django.db.backends.postgresql',
+    	'NAME': 'est_e9423524',  # Nom de la teva base de dades
+    	'USER': 'est_e9423524',      	# El teu usuari de PostgreSQL
+    	'PASSWORD': 'dB.e9423524', # La contrasenya de PostgreSQL
+    	'HOST': 'ubiwan.epsevg.upc.edu', # Servidor de la base de dades
+    	'PORT': '5432',        	# Port del servidor de PostgreSQL
+    	'OPTIONS':{ 'options': '-c search_path=practica' },
+    	}
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -127,4 +133,9 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #cors authorization
-CORS_ALLOWED_ORIGINS = []
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:5173',
+    'http://127.0.0.1:5173',
+]
+
+CORS_ALLOWED_CREDENTIALS = True
