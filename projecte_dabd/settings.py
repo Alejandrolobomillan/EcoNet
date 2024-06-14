@@ -78,12 +78,18 @@ WSGI_APPLICATION = 'projecte_dabd.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+	'default': {
+   	# 'ENGINE': 'django.db.backends.sqlite3',
+   	# 'NAME': BASE_DIR / 'db.sqlite3',
+     	'ENGINE': 'django.db.backends.postgresql',
+    	'NAME': 'est_e9423524',  # Nom de la teva base de dades
+    	'USER': 'est_e9423524',      	# El teu usuari de PostgreSQL
+    	'PASSWORD': 'dB.e9423524', # La contrasenya de PostgreSQL
+    	'HOST': 'ubiwan.epsevg.upc.edu', # Servidor de la base de dades
+    	'PORT': '5432',        	# Port del servidor de PostgreSQL
+    	'OPTIONS':{ 'options': '-c search_path=practica' },
+    	}
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
