@@ -1,6 +1,6 @@
 from rest_framework import viewsets
 from .serializer import UsuariSerializer, AgricultorSerializer, ClientSerializer, CompraSerializer, ProducteSerializer, Element_CompraSerializer
-from .models import Usuari, Agricultor, Client, Compra, Producte, Element_Compra
+from .models import Usuari, Client, Agricultor, Compra, Producte, Element_Compra
 from django.shortcuts import render
 from django.http import JsonResponse
 import json
@@ -11,13 +11,13 @@ class UsuariView(viewsets.ModelViewSet):
     serializer_class = UsuariSerializer
     queryset = Usuari.objects.all()
 
-class AgricultorView(viewsets.ModelViewSet):
-    serializer_class = AgricultorSerializer
-    queryset = Agricultor.objects.all()
-
 class ClientView(viewsets.ModelViewSet):
     serializer_class = ClientSerializer
     queryset = Client.objects.all()
+
+class AgricultorView(viewsets.ModelViewSet):
+    serializer_class = AgricultorSerializer
+    queryset = Agricultor.objects.all()
 
 class CompraView(viewsets.ModelViewSet):
     serializer_class = CompraSerializer
@@ -59,3 +59,18 @@ def login_user(request):
     
     return JsonResponse({'error': 'invalid request method'}, status=405)
 
+def getUserByUsername(request, username):
+    try:
+        user = Usuari.objects.get(username=username)
+        user_details = {
+            'username': user.username,
+            'nom': user.nom,
+            'telefon': user.telefon,
+            'correu': user.correu,
+            # Agrega más campos según sea necesario
+        }
+        return JsonResponse(user_details)
+    except Usuari.DoesNotExist:
+        return JsonResponse({'error': f'User with username {username} does not exist'}, status=404)
+    except Exception as e:
+        return JsonResponse({'error': str(e)}, status=500)

@@ -1,19 +1,24 @@
 // src/App.jsx
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Home from './components/Home';
 import Login from './components/Login';
 import Registration from './components/Registration';
+import RegistrationClient from './components/RegistrationClient';
 import Profile from './components/Profile';
+import useStore from './store/useStore';
 import './App.css';
 
 function App() {
+  const { username, logout } = useStore();
   return (
     <Router>
       <div className="header">
         <div className="contact-info">
-          <span>📞 +34 123456789</span>
-          <span>📧 arshadchowdhury46@gmail.com</span>
+            <>
+              <span>📞 {"+34 658 98 13 12"}</span>
+              <span>📧 {"econet_team@gmail.com"}</span>
+            </>
         </div>
         <div className="logo">
           <h1>econet</h1>
@@ -21,8 +26,9 @@ function App() {
         <nav>
           <ul>
             <li><Link to="/">Home</Link></li>
-            <li><Link to="/login">Login</Link></li>
-            <li><Link to="/registration">Registration</Link></li>
+            <li><Link to="/login">Login Client</Link></li>
+            <li><Link to="/registration">Register User</Link></li>
+            <li><Link to="/registrationclient">Register Client</Link></li>
             <li><Link to="/profile">Profile</Link></li>
           </ul>
         </nav>
@@ -31,6 +37,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/registration" element={<Registration />} />
+        <Route path="/registrationclient" element={<RegistrationClient />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
     </Router>
@@ -38,4 +45,3 @@ function App() {
 }
 
 export default App;
-
