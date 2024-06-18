@@ -1,19 +1,19 @@
 from rest_framework import serializers
-from .models import Usuari, Agricultor, Client, Compra, Producte, Element_Compra
+from .models import Usuari, Client, Agricultor, Compra, Producte, Element_Compra
 
 class UsuariSerializer(serializers.ModelSerializer):
     class Meta:
         model = Usuari
         fields = '__all__'
 
-class AgricultorSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Agricultor
-        fields = '__all__'
-
 class ClientSerializer(serializers.ModelSerializer):
     class Meta:
         model = Client
+        fields = '__all__'        
+
+class AgricultorSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Agricultor
         fields = '__all__'
 
 class CompraSerializer(serializers.ModelSerializer):
