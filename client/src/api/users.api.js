@@ -35,3 +35,7 @@ export const getUserByUsername = async (username) => {
       throw new Error('Failed to fetch user details');
     }
   };
+
+  export const random_products = () => axios.get('http://localhost:8000/econet/random-products/');
+
+  export const getProductsByCategory = (categoria, page) => axios.get(`http://localhost:8000/econet/get_by_categoria/?categoria=${categoria}&page=${page}`);

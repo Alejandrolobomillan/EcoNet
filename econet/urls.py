@@ -14,4 +14,6 @@ urlpatterns = [
     path("api/", include(router.urls)),
     path("login/", views.login_user, name='login'),
     path("getuser/", views.getUserByUsername, name='getuser'),
+    path("random-products/", views.get_random_products, name='random-products'),
+    path("get_by_categoria/", views.get_products_by_category, name='get_by_categoria'),
 ]
