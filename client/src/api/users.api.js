@@ -24,6 +24,11 @@ export const registerUser = (usuari) => usersApi.post('/', usuari);
 
 export const registerClient = (client) => clientsApi.post('/', client);
 
+export const getCompra = async (username) => {
+  const response = await axios.get(`http://localhost:8000/econet/get_compras/?username=${username}`);
+  return response.data;
+};
+
 export const loginUser = (credentials) => axios.post('http://localhost:8000/econet/login/', credentials);
 
 export const getUserByUsername = async (username) => {

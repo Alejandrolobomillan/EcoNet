@@ -16,4 +16,5 @@ urlpatterns = [
     path("getuser/", views.getUserByUsername, name='getuser'),
     path("random-products/", views.get_random_products, name='random-products'),
     path("get_by_categoria/", views.get_products_by_category, name='get_by_categoria'),
+    path("get_compras/", views.get_compras_by_username, name='get_compras'),
 ]

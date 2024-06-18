@@ -1,12 +1,14 @@
+// src/components/Profile.js
 import React, { useEffect, useState } from 'react';
 import useStore from "../store/useStore";
-import { getUserByUsername, getClient } from "../api/users.api";
+import { getUserByUsername, getClient, getCompra } from "../api/users.api";
 
 function Profile() {
   const { username, logout } = useStore();
   const [userDetails, setUserDetails] = useState(null);
   const [clientDetails, setClientDetails] = useState(null);
-  const [loading, setLoading] = useState(true); // Estado para controlar la carga inicial
+  const [compraDetails, setCompraDetails] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchUserDetails() {
@@ -27,12 +29,21 @@ function Profile() {
       }
     }
 
+    async function fetchCompraDetails() {
+      try {
+        const compraDetails = await getCompra(username);
+        setCompraDetails(compraDetails);
+      } catch (error) {
+        console.error('Failed to fetch compra details:', error.message);
+      }
+    }
+
     if (username) {
-      Promise.all([fetchUserDetails(), fetchClientDetails()]).then(() => {
-        setLoading(false); // Marcar la carga como completa cuando ambos detalles se han cargado
+      Promise.all([fetchUserDetails(), fetchClientDetails(), fetchCompraDetails()]).then(() => {
+        setLoading(false);
       });
     } else {
-      setLoading(false); // Si no hay username, la carga se marca como completa
+      setLoading(false);
     }
   }, [username]);
 
@@ -40,6 +51,7 @@ function Profile() {
     logout();
     setUserDetails(null);
     setClientDetails(null);
+    setCompraDetails(null);
   };
 
   return (
@@ -60,7 +72,19 @@ function Profile() {
           {clientDetails && (
             <div>
               <p>Direcció d'enviament: {clientDetails.direccio_denviament}</p>
-              {/* Mostrar otros detalles del cliente según sea necesario */}
+            </div>
+          )}
+          {compraDetails && (
+            <div>
+              <h3>Compras:</h3>
+              <ul>
+                {compraDetails.map((compra, index) => (
+                  <li key={index}>
+                    <p>Compra ID: {compra.id}</p>
+                    <p>Fecha: {compra.data_de_compra}</p>
+                  </li>
+                ))}
+              </ul>
             </div>
           )}
           {username && <button onClick={handleLogout} className="logout-button">Logout</button>}

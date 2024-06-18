@@ -113,3 +113,21 @@ def get_products_by_category(request):
         'results': serializer.data,
         'total_pages': total_pages
     })
+
+@api_view(['GET'])
+def get_compras_by_username(request):
+    username = request.query_params.get('username')
+    try:
+        # Buscar el cliente basado en el username del usuario
+        user = Usuari.objects.get(username=username)
+        client = Client.objects.get(username_client=user)
+        compras = Compra.objects.filter(client=client)
+        serializer = CompraSerializer(compras, many=True)
+        return Response(serializer.data)
+    except Usuari.DoesNotExist:
+        return Response({'error': 'User not found'}, status=404)
+    except Client.DoesNotExist:
+        return Response({'error': 'Client not found'}, status=404)
+    except Exception as e:
+        return Response({'error': str(e)}, status=500)
+
