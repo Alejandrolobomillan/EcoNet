@@ -12,4 +12,5 @@ router.register(r'element_compra', views.Element_CompraView, 'element_compra')
 
 urlpatterns = [
     path("api/", include(router.urls)),
+    path("login/", views.login_user, name='login'),
 ]
