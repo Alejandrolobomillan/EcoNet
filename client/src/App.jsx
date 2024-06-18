@@ -6,11 +6,9 @@ import Login from './components/Login';
 import Registration from './components/Registration';
 import RegistrationClient from './components/RegistrationClient';
 import Profile from './components/Profile';
-import useStore from './store/useStore';
 import './App.css';
 
 function App() {
-  const { username, logout } = useStore();
   return (
     <Router>
       <div className="header">

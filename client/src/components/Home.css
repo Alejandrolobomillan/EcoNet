@@ -1,41 +1,111 @@
-/* src/components/Home.css */
 .home {
-    display: flex;
-  }
+  display: flex;
+}
+
+.sidebar {
+  width: 250px; /* Ajusta el ancho según lo necesites */
+  background-color: rgb(221, 243, 243); /* Color de fondo del sidebar */
+  padding: 10px;
+  border-right: 1px solid rgb(221, 243, 243);; /* Borde derecho para separar del contenido principal */
+}
+
+.sidebar ul {
+  list-style: none; /* Elimina los puntos de las listas */
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 25px;
+  cursor: pointer;
+  padding: 10px;
+  background-color: #000000; /* Color de fondo de cada ítem */
+  border-radius: 5px;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.sidebar li:hover {
+  background-color: #84878a;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+.main-content h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.main-content p {
+  margin: 20px 0;
+}
+
+.main-content button {
+  padding: 10px 20px;
+  background-color: #000000;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.product-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  width: 300px;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  background-color: #ffffff;
+}
+
+.card h2 {
+  font-size: 1.5em;
+  margin: 10px;
+}
+
+.card p {
+  margin: 10px;
+}
+
+.card button {
+  padding: 10px;
+  background-color: #c62c2c;
+  color: rgb(255, 255, 255);
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.pagination {
+  margin-top: 20px;
+}
+
+.pagination button {
+  margin-right: 5px;
+  background-color: #000000;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.pagination button:hover {
+  background-color: #84878a;
   
-  .sidebar {
-    width: 200px;
-    background-color: rgb(221, 243, 243);
-    padding: 10px;
-  }
-  
-  .sidebar ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .sidebar li {
-    margin: 10px 0;
-  }
-  
-  .main-content {
-    flex-grow: 1;
-    padding: 20px;
-  }
-  
-  .main-content h1 {
-    font-size: 2em;
-  }
-  
-  .main-content p {
-    margin: 20px 0;
-  }
-  
-  .main-content button {
-    padding: 10px 20px;
-    background-color: #dc3545;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  
+}

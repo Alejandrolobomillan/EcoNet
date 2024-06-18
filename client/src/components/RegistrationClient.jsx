@@ -20,7 +20,7 @@ export function register() {
               {required: true})}/>
               </label>
               <label>
-              Direcció D'enviament:
+              Direcció d'enviament:
               <input type="text" placeholder="Direcció" {...register("direccio_denviament",
               {required: true})}/>
               </label>
