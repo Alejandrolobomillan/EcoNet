@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Home from './components/Home';
 import Login from './components/Login';
 import Registration from './components/Registration';
+import Profile from './components/Profile';
 import './App.css';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
             <li><Link to="/">Home</Link></li>
             <li><Link to="/login">Login</Link></li>
             <li><Link to="/registration">Registration</Link></li>
+            <li><Link to="/profile">Profile</Link></li>
           </ul>
         </nav>
       </div>
@@ -29,6 +31,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/registration" element={<Registration />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </Router>
   );

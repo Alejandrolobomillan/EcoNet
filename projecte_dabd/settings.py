@@ -51,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
 ]
 
 ROOT_URLCONF = 'projecte_dabd.urls'
@@ -139,3 +140,5 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 CORS_ALLOWED_CREDENTIALS = True
+
+CSRF_TRUSTED_ORIGINS = ['http://localhost:5173']

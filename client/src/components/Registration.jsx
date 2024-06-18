@@ -15,7 +15,7 @@ export function register() {
         <h1>Registration</h1>
           <form onSubmit={onSubmit}>
               <label>
-              Name:
+              Username:
               <input type="text" placeholder="Username" {...register("username",
               {required: true})}/>
               </label>
