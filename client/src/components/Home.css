@@ -1,5 +1,44 @@
 /* src/components/Home.css */
 .home {
+    display: flex;
+  }
+  
+  .sidebar {
+    width: 200px;
+    background-color: rgb(221, 243, 243);
+    padding: 10px;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar li {
+    margin: 10px 0;
+  }
+  
+  .main-content {
+    flex-grow: 1;
+    padding: 20px;
+  }
+  
+  .main-content h1 {
+    font-size: 2em;
+  }
+  
+  .main-content p {
+    margin: 20px 0;
+  }
+  
+  .main-content button {
+    padding: 10px 20px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
   display: flex;
 }
 

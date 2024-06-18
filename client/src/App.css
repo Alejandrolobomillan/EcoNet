@@ -6,8 +6,8 @@
   .header-top {
     display: flex;
     justify-content: space-between;
-    background-color: #002147;
-    color: white;
+    background-color: #ffffff;
+    color: rgb(255, 255, 255);
     padding: 10px;
   }
   
@@ -61,7 +61,7 @@
   }
   
   .login label {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
   
   .login input {
@@ -70,14 +70,21 @@
     margin-bottom: 15px;
   }
   
-  .login button {
-    padding: 10px;
-    background-color: #007bff;
+  .login-button {
+    padding: 10px 20px;
+    background-color: #000000;
     color: white;
     border: none;
+    border-radius: 4px;
     cursor: pointer;
+    align-self: flex-start;
+    margin-top: 20px;
   }
   
+  .login-button:hover {
+    background-color: #8f8f8f;
+  }
+
   /* Estilos para el componente Registration */
   .registration {
     padding: 20px;
@@ -89,7 +96,7 @@
   }
   
   .registration label {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
   
   .registration input {
@@ -98,12 +105,19 @@
     margin-bottom: 15px;
   }
   
-  .registration button {
-    padding: 10px;
-    background-color: #28a745;
+  .register-button {
+    padding: 10px 20px;
+    background-color: #000000;
     color: white;
     border: none;
+    border-radius: 4px;
     cursor: pointer;
+    align-self: flex-start;
+    margin-top: 20px;
+  }
+  
+  .register-button:hover {
+    background-color: #8f8f8f;
   }
 
   /* src/App.css */
@@ -131,6 +145,7 @@ nav ul {
   display: flex;
   list-style: none;
   padding: 0;
+  font-size: large;
   gap: 15px;
 }
 
@@ -140,7 +155,7 @@ nav ul li {
 
 nav ul li a {
   text-decoration: none;
-  color: #007bff;
+  color: #000000;
 }
 
 .product-cards {
@@ -195,4 +210,82 @@ nav ul li a {
   cursor: pointer;
 }
 
-  
+ /* Estilos para el componente Registrationclient */
+ .registrationclient {
+  padding: 20px;
+}
+
+.registrationclient form {
+  display: flex;
+  flex-direction: column;
+}
+
+.registrationclient label {
+  margin-bottom: 20px;
+}
+
+.registrationclient input {
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.register-button {
+  padding: 10px 20px;
+  background-color: #000000;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  align-self: flex-start;
+  margin-top: 20px;
+}
+
+.register-button:hover {
+  background-color: #8f8f8f;
+}
+
+ /* Estilos para el componente profile */
+ .profile {
+  padding: 20px;
+}
+
+.profile form {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile label {
+  margin-bottom: 20px;
+}
+
+.profile input {
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.logout-button {
+  padding: 10px 20px;
+  background-color: #000000;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  align-self: flex-start;
+  margin-top: 20px;
+}
+
+.logout-button:hover {
+  background-color: #8f8f8f;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #b4dfe3; /* Cambia el color de fondo del header */
+}
+
+/* Otros estilos para la aplicación */

@@ -12,7 +12,7 @@ export function register() {
 
   return (
       <div className="registration">
-        <h1>Registration</h1>
+        <h1>Register User</h1>
           <form onSubmit={onSubmit}>
               <label>
               Username:
@@ -39,9 +39,7 @@ export function register() {
               <input type="text" placeholder="Correu" {...register("correu",
               {required: true})}/>
               </label>
-              <input type="checkbox" placeholder="Client" {...register("client",
-              {required: true})}/>
-              <input type="submit" />
+              <button type="submit" className="register-button">Register</button>
           </form>
       </div>
   );
